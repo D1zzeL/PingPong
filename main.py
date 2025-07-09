@@ -2,9 +2,11 @@ import pygame
 
 win = pygame.display.set_mode((600, 500))
 
+back = ((0, 220, 255))
+
 clock = pygame.time.Clock()
 
-win.fill((0, 220, 255))
+win.fill(back)
 #阿拉马兹
 is_game = True
 
@@ -25,7 +27,7 @@ class Player(GameSprite):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_UP] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[pygame.K_DOWN] and self.rect.y < 415:
+        if keys[pygame.K_DOWN] and self.rect.y < 350:
             self.rect.y += self.speed
 
     def update_l(self):
@@ -40,9 +42,14 @@ racket2 = Player('racket.png', 520, 200, 4, 50, 250)
 ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
 
 while is_game:
+    win.fill(back)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             is_game = False
+
+    racket1.update_l()
+
+    racket2.update_r()
     
     racket1.reset()
     racket2.reset()
