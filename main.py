@@ -5,7 +5,7 @@ win = pygame.display.set_mode((700, 500))
 clock = pygame.time.Clock()
 
 win.fill((0, 220, 255))
-
+#阿拉马兹
 is_game = True
 
 while is_game:
